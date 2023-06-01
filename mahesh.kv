@@ -1,0 +1,505 @@
+<ContentNavigationDrawer>:
+    orientation: 'vertical'
+    padding: '8dp'
+    spacing: '8dp'
+
+    AnchorLayout:
+        anchor_x: 'left'
+        size_hint_y: None
+        height: avatar.height
+
+        Image:
+            id: avatar
+            size_hint: None, None
+            size: "50dp","50dp"
+            source: 'images/mahesh1.jpeg'
+
+        MDLabel:
+            text: 'Astro Mahesh'
+            font_style: 'Button'
+            size_hint_y:None
+            height: self.texture_size[1]
+            halign: 'center'
+            adaptive_height: True
+
+
+    ScrollView:
+
+        MDList:
+            OneLineListItem:
+                text: 'Home'
+                on_press:
+                    root.nav_drawer.set_state('close')
+                    root.screen_manager.current = 'home_screen'
+
+            OneLineListItem:
+                text: 'Gem Stone'
+                on_press:
+                    root.nav_drawer.set_state('close')
+                    root.screen_manager.current = 'gem_stone'
+
+            OneLineListItem:
+                text: 'About us'
+                on_press:
+                    root.nav_drawer.set_state('close')
+                    root.screen_manager.current = 'about_screen'
+
+            OneLineListItem:
+                text: 'consult'
+                on_press:
+                    root.nav_drawer.set_state('close')
+                    root.screen_manager.current = 'consult_screen'
+
+
+<MainWidget>:
+    Screen:
+        MDRelativeLayout:
+            radius: [20, ]
+            md_bg_color: [255/255,191/255,13/255,1]
+        MDNavigationLayout:
+            ScreenManager:
+                id: screen_manager
+
+                HomeScreen:
+                    name: 'home_screen'
+                    BoxLayout:
+                        orientation: 'vertical'
+
+                        MDTopAppBar:
+                            title: 'Astro Mahesh'
+                            elevation: 0
+                            left_action_items: [['menu', lambda x: nav_drawer.set_state('toggle')]]
+
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            size_hint_y: None
+                            height: "40dp"
+                            padding: "8dp"
+
+
+                            MDFlatButton:
+                                text: 'Home'
+                                on_release: app.go_to_screen('home_screen')
+
+                            MDFlatButton:
+                                text: 'Gem Stone'
+                                on_release: app.go_to_screen('gem_screen')
+
+                            MDFlatButton:
+                                text: 'About Us'
+                                on_release: app.go_to_screen('about_screen')
+
+                            MDFlatButton:
+                                text: 'Consult'
+                                on_release: app.go_to_screen('consult_screen')
+
+                            MDRoundFlatIconButton:
+                                text: ' '
+                                icon: 'whatsapp'
+                                on_release: app.send_message()
+                                type: 'large'
+                                text_color: "green"
+                                line_color: "red"
+                                icon_color: "green"
+                                pos_hint: {"center_x": 2, "center_y": .5}
+
+                        ScrollView
+                            MDList:
+                                id: home_list
+
+                                OneLineAvatarListItem:
+                                    text: '            Solution to All Problems'
+                                    halign: 'center'
+
+                                    ImageLeftWidget:
+                                        source: "images/mahesh1.jpeg"
+
+                                OneLineAvatarListItem:
+                                    text: 'Political Career'
+                                    on_release: app.send_message()
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                Image:
+                                    size_hint: 1, None
+                                    size: "150dp","150dp"
+                                    source: 'images/politics.jpeg'
+
+                                OneLineAvatarListItem:
+                                    text: 'Married Life Issues'
+                                    on_release: app.send_message()
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                Image:
+                                    size_hint: 1, None
+                                    size: "150dp","150dp"
+                                    source: 'images/marrige.jpeg'
+
+                                OneLineAvatarListItem:
+                                    text: 'Love Affair'
+                                    on_release: app.send_message()
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                Image:
+                                    size_hint: 1, None
+                                    size: "150dp","150dp"
+                                    source: 'images/love.jpeg'
+
+                                OneLineAvatarListItem:
+                                    text: 'Secret Enemies'
+                                    on_release: app.send_message()
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                Image:
+                                    size_hint: 1, None
+                                    size: "150dp","150dp"
+                                    source: 'images/enemy.jpeg'
+
+                                OneLineAvatarListItem:
+                                    text: 'Money Matters'
+                                    on_release: app.send_message()
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                Image:
+                                    size_hint: 1, None
+                                    size: "150dp","150dp"
+                                    source: 'images/money.jpeg'
+
+                                OneLineAvatarListItem:
+                                    text: 'Foriegn Settlement'
+                                    on_release: app.send_message()
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                Image:
+                                    size_hint: 1, None
+                                    size: "150dp","150dp"
+                                    source: 'images/foreign.jpeg'
+
+                                OneLineAvatarListItem:
+                                    text: 'Depression'
+                                    on_release: app.send_message()
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                Image:
+                                    size_hint: 1, None
+                                    size: "150dp","150dp"
+                                    source: 'images/depression.jpeg'
+
+                GemScreen:
+                    name: 'gem_screen'
+                    BoxLayout:
+                        orientation: 'vertical'
+
+                        MDTopAppBar:
+                            title: 'Gem Stone'
+                            elevation: 1
+                            left_action_items: [['menu', lambda x: nav_drawer.set_state('toggle')]]
+
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            size_hint_y: None
+                            height: "40dp"
+                            padding: "8dp"
+
+                            MDFlatButton:
+                                text: 'Home'
+                                on_release: app.go_to_screen('home_screen')
+
+                            MDFlatButton:
+                                text: 'Gem Stone'
+                                on_release: app.go_to_screen('gem_screen')
+
+                            MDFlatButton:
+                                text: 'About Us'
+                                on_release: app.go_to_screen('about_screen')
+
+                            MDFlatButton:
+                                text: 'Consult'
+                                on_release: app.go_to_screen('consult_screen')
+
+
+                            MDRoundFlatIconButton:
+                                text: ' '
+                                icon: 'whatsapp'
+                                on_release: app.send_message()
+                                type: 'large'
+                                text_color: "green"
+                                line_color: "red"
+                                icon_color: "green"
+                                pos_hint: {"center_x": 2, "center_y": .5}
+
+                        ScrollView:
+                            MDList:
+                                id: gem_list
+
+                                OneLineAvatarListItem:
+                                    text: 'We Provide all Original Gem Stones'
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                OneLineAvatarListItem:
+                                    text: 'With vedic Pooja and Beej Mantra Jaap'
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                OneLineAvatarListItem:
+                                    text: 'We provide all India Courier'
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                OneLineAvatarListItem:
+                                    text: 'Yellow Sapphire'
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                Image:
+                                    size_hint: 0.1, None
+                                    size: "450dp","150dp"
+                                    source: 'images/yellow.jpeg'
+
+                                OneLineAvatarListItem:
+                                    text: 'Ruby Sapphire'
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                Image:
+                                    size_hint: 0.1, None
+                                    size: "450dp","150dp"
+                                    source: 'images/ruby.jpeg'
+
+                                OneLineAvatarListItem:
+                                    text: 'Green Emerald'
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                Image:
+                                    size_hint: 0.1, None
+                                    size: "450dp","150dp"
+                                    source: 'images/emerald.jpeg'
+
+                                OneLineAvatarListItem:
+                                    text: 'Pearl (Moti)'
+
+                                    IconLeftWidget:
+                                        icon: "om"
+                                Image:
+                                    size_hint: 0.1, None
+                                    size: "450dp","150dp"
+                                    source: 'images/pearl.jpeg'
+
+                                OneLineAvatarListItem:
+                                    text: 'Gomed'
+
+                                    IconLeftWidget:
+                                        icon: "om"
+                                Image:
+                                    size_hint: 0.1, None
+                                    size: "450dp","150dp"
+                                    source: 'images/gomed.jpeg'
+
+                                OneLineAvatarListItem:
+                                    text: 'Red Coral'
+
+                                    IconLeftWidget:
+                                        icon: "om"
+                                Image:
+                                    size_hint: 0.1, None
+                                    size: "450dp","150dp"
+                                    source: 'images/moonga.jpeg'
+
+                AboutScreen:
+                    name: 'about_screen'
+                    BoxLayout:
+                        orientation: 'vertical'
+
+                        MDTopAppBar:
+                            title: 'About Us'
+                            elevation: 1
+                            left_action_items: [['menu', lambda x: nav_drawer.set_state('toggle')]]
+
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            size_hint_y: None
+                            height: "40dp"
+                            padding: "8dp"
+
+                            MDFlatButton:
+                                text: 'Home'
+                                on_release: app.go_to_screen('home_screen')
+
+                            MDFlatButton:
+                                text: 'Gem Stone'
+                                on_release: app.go_to_screen('gem_screen')
+
+                            MDFlatButton:
+                                text: 'About Us'
+                                on_release: app.go_to_screen('about_screen')
+
+                            MDFlatButton:
+                                text: 'Consult'
+                                on_release: app.go_to_screen('consult_screen')
+
+                            MDRoundFlatIconButton:
+                                text: ' '
+                                icon: 'whatsapp'
+                                on_release: app.send_message()
+                                type: 'large'
+                                text_color: "green"
+                                line_color: "red"
+                                icon_color: "green"
+                                pos_hint: {"center_x": 2, "center_y": .5}
+
+                        ScrollView:
+                            MDList:
+                                id: about_list
+
+                                OneLineAvatarListItem:
+                                    text: 'Sir, is Master in Vedic Astrology'
+                                    font_style: 'Body2'
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                OneLineAvatarListItem:
+                                    text: 'He has a client base across 21 Countries'
+                                    font_style: 'Body2'
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                OneLineAvatarListItem:
+                                    id: list_item
+                                    text: 'Has a experience of about 5000 kundali analysis'
+                                    font_style: 'Body2'
+
+                                OneLineAvatarListItem:
+                                    text: 'He gives remedies to every problem in life and '
+                                    font_style: 'Body2'
+                                    IconLeftWidget:
+                                        icon: "om"
+
+
+                        Image:
+                            align: 'right'
+                            size_hint: 1, 1
+                            size: "300dp", "300dp"
+                            source: 'images/base.jpeg'
+
+
+
+
+                Consult:
+                    name: 'consult_screen'
+                    BoxLayout:
+                        orientation: 'vertical'
+
+                        MDTopAppBar:
+                            title: 'Consult'
+                            elevation: 1
+                            left_action_items: [['menu', lambda x: nav_drawer.set_state('toggle')]]
+
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            size_hint_y: None
+                            height: "40dp"
+                            padding: "8dp"
+
+                            MDFlatButton:
+                                text: 'Home'
+                                on_release: app.go_to_screen('home_screen')
+
+                            MDFlatButton:
+                                text: 'Gem Stone'
+                                on_release: app.go_to_screen('gem_screen')
+
+                            MDFlatButton:
+                                text: 'About Us'
+                                on_release: app.go_to_screen('about_screen')
+
+                            MDFlatButton:
+                                text: 'Consult'
+                                on_release: app.go_to_screen('consult_screen')
+
+
+                            MDRoundFlatIconButton:
+                                text: ' '
+                                icon: 'whatsapp'
+                                on_release: app.send_whatsapp_message()
+                                type: 'large'
+                                text_color: "green"
+                                line_color: "red"
+                                icon_color: "green"
+                                pos_hint: {"center_x": 2, "center_y": .5}
+
+                        ScrollView:
+                            MDList:
+                                id: consult_list
+
+                                OneLineAvatarListItem:
+                                    text: 'Consulting Fees 501 (max 20 min)'
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                OneLineAvatarListItem:
+                                    text: 'Waiting for 24-72 hr after payment'
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                OneLineAvatarListItem:
+                                    text: 'Contact us in whatsapp'
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                TwoLineAvatarListItem:
+                                    text: 'Details Required'
+                                    secondary_text: 'Birthdate, BirthPlace & Birth time'
+
+                                    IconLeftWidget:
+                                        icon: "om"
+
+                                MDRoundFlatIconButton:
+                                    text: 'WhatsApp'
+                                    icon: 'whatsapp'
+                                    on_release: app.send_message()
+                                    type: 'large'
+                                    text_color: "green"
+                                    line_color: "red"
+                                    icon_color: "green"
+                                    pos_hint: {"center_x": 2, "center_y": .5}
+                                    halign: 'center'
+
+                                OneLineListItem:
+                                    text: 'GPay/PhonePay Number: 8275280055'
+                                Image:
+                                    align: 'right'
+                                    size_hint: 1, None
+                                    size: "300dp", "300dp"
+                                    source: 'images/phonepay.jpeg'
+
+            MDNavigationDrawer:
+                id: nav_drawer
+
+                ContentNavigationDrawer:
+                    id: content_drawer
+                    screen_manager: screen_manager
+                    nav_drawer: nav_drawer
